@@ -38,7 +38,9 @@
 
    因此，在使用本项目的脚本程序时，需要现在电脑上配置好最新的python3环境，并且安装配置好这几个库。安装python之后，可以用pip直接将这几个库给装好
 
-   Tips: statsmodels.api库可能有点难安装，需要先安装依赖库wheel库再进行安装操作，详情可戳：https://blog.csdn.net/songrenqing/article/details/78935363。笔者在anaconda上面管理库的话就没有这些问题，也强烈建议想要经常使用python的同学安装集成的anaconda库（尤其是mac用户，当然Linux用户安装Miniconda就够用了）
+   Tips: statsmodels.api库可能有点难安装，需要先安装依赖库wheel库再进行安装操作，详情可戳：https://blog.csdn.net/songrenqing/article/details/78935363
+
+   笔者在anaconda上面管理库的话就没有这些问题，也强烈建议想要经常使用python的同学安装集成的anaconda库（尤其是mac用户，当然Linux用户安装Miniconda就够用了）
 
 2. 用户在使用本项目时，须认真阅读此Readme后面有关各项目的输入文件格式，并且明确自己这个实验的各个物理量的单位和意义，以及各步数据处理与作图拟合的操作与意义，在**执行程序的目录下**（如果你是在桌面运行的，那就把输入文件在桌面上准备好）准备好对应的输入文件，才能利用这个软件包得到理想的结果。事实上完成实验报告的时候这些数据处理的方法思路是需要理清楚的，我们这个程序包做的事情只是解放你的双手，但不是解放你的大脑。
 
