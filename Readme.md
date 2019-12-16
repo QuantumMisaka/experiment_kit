@@ -18,7 +18,7 @@
 
 本项目的功能框架：
 
-<img src="/Users/apple/Documents/GitHub/experiment_kit/images/截屏2019-12-12下午6.58.27.png" style="zoom:67%;" />
+<img src="./images/截屏2019-12-12下午6.58.27.png" style="zoom:67%;" />
 
 ***
 
@@ -54,7 +54,7 @@
 
    打开excel或Numbers（以Numbers为例），按照格式要求输入数据，注意项目名称的一致性。如果觉得手打项目名称麻烦，可以用excel或Numbers打开程序包中示例里面的.csv文件（或者是将说明里面的.csv展示直接复制粘贴到记事板中，另存为.csv文件，再打开），然后再编辑，之后保存为.csv文件，如下图，以燃烧热的数据准备为例：
 
-   <img src="/Users/apple/Documents/GitHub/experiment_kit/images/截屏2019-12-11下午12.17.14.png" alt="截屏2019-12-11下午12.17.14" style="zoom:33%;" /><img src="/Users/apple/Documents/GitHub/experiment_kit/images//截屏2019-12-11下午12.17.25.png" alt="截屏2019-12-11下午12.17.25" style="zoom: 33%;" /><img src="/Users/apple/Documents/GitHub/experiment_kit/images//截屏2019-12-11下午12.17.33.png" alt="截屏2019-12-11下午12.17.33" style="zoom: 33%;" />
+   <img src="./images/截屏2019-12-11下午12.17.14.png" alt="截屏2019-12-11下午12.17.14" style="zoom:33%;" /><img src="./images//截屏2019-12-11下午12.17.25.png" alt="截屏2019-12-11下午12.17.25" style="zoom: 33%;" /><img src="./images//截屏2019-12-11下午12.17.33.png" alt="截屏2019-12-11下午12.17.33" style="zoom: 33%;" />
 
 
 
