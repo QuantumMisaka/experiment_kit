@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import sqlite3 # 数据库应用
 import pandas as pd
 import os
+from scipy import interpolate  # 插值
 
 path = os.getcwd()
 input_file = "{}/cy_al_input.csv".format(path)
@@ -114,6 +115,14 @@ xb_l_std = std_data[:,0]
 xb_g_std = std_data[:,1]
 t_use_std= std_data[:,2]
 
+# 对标准曲线进行平滑化:二阶样条曲线插值
+xb_l_stds = np.linspace(np.min(xb_l_std), np.max(xb_l_std), 100)
+f = interpolate.interp1d(xb_l_std, t_use_std, kind='quadratic')
+t_use_std_l = f(xb_l_stds)
+xb_g_stds = np.linspace(np.min(xb_g_std), np.max(xb_g_std), 100)
+f = interpolate.interp1d(xb_g_std, t_use_std, kind='quadratic')
+t_use_std_g = f(xb_g_stds)
+
 # 作图
 plt.figure(figsize=(25,16))
 plt.rcParams['font.family'] = 'Arial Unicode MS'
@@ -137,9 +146,11 @@ plt.xticks(my_x_ticks)
 plt.yticks(my_y_ticks)
 
 plt.plot(xb_l, t_use, 'g>', label='液相数据点', markersize=14)
-plt.plot(xb_l_std, t_use_std, 'bo-', label='液相标准线', linewidth=3, markersize=11)
+plt.plot(xb_l_stds, t_use_std_l, 'b-', label='液相标准线', linewidth=3,)
+plt.plot(xb_l_std, t_use_std, 'bo', label='液相标准点', markersize=14,)
 plt.plot(xb_g ,t_use, 'gs', label='气相数据点', markersize=14)
-plt.plot(xb_g_std, t_use_std, 'ro-.', label='气相标准线', linewidth=3, markersize=11)
+plt.plot(xb_g_stds, t_use_std_g, 'r-.', label='气相标准线', linewidth=3,)
+plt.plot(xb_g_std, t_use_std, 'ro', label='气相标准点', markersize=14,)
 plt.xlabel(u'x_(环)[y_(环)]', fontsize=20)
 plt.ylabel(u't_常 / ℃', fontsize=20)
 plt.title('环己烷-乙醇恒压汽液平衡相图', fontsize=26)

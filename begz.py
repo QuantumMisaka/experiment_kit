@@ -1,10 +1,12 @@
 # 大物实验：波尔共振的数据处理程序
 # JamesBourbon in 20191101
+# 最新改进：加入三次样条较正
 
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import os
+from scipy import interpolate  # 插值
 
 path = os.getcwd()
 # 自由振荡实验数据
@@ -110,10 +112,16 @@ plt.rcParams['font.size'] = 16
 # 调整matplotlib内部设置使之支持中文,这种方法改变全局设置
 
 # 绘制幅频特性曲线
+# spline插值法
+xx0 = np.linspace(np.min(x0), np.max(x0), 100)
+f = interpolate.interp1d(x0, sita_bl, kind='cubic')
+# quadratic/cubic 2阶/3阶样条曲线插值
+sita_bl_y = f(xx0)
+# 出图
 figsize = (25,12)
 plt.figure(1, figsize) #新建图框
+plt.plot(xx0, sita_bl_y, 'r-.', label='实验曲线', linewidth=3)
 plt.plot(x0, sita_bl, 'bo', label='实验数据点', markersize=12)
-plt.plot(x0, sita_bl, 'r-', label='实验曲线', linewidth=3)
 plt.xlabel('频率比 ω/ω0', fontsize=20)
 plt.ylabel('振幅 θ / °', fontsize=20)
 plt.title('θ ~ ω/ω0 幅频特性曲线图', fontsize=26)
@@ -122,9 +130,13 @@ plt.grid() # 显示网格线
 plt.savefig('{}/波尔共振_幅频特性曲线'.format(path))
 
 # 绘制相频特性曲线
+# spline插值法
+f = interpolate.interp1d(x0, -fai_bl, kind='cubic')
+# quadratic/cubic 2阶/3阶样条曲线插值
+fai_bl_y = f(xx0)
 plt.figure(2, figsize)
+plt.plot(xx0, fai_bl_y, 'r-.', label='实验曲线', linewidth=3)
 plt.plot(x0, -fai_bl, 'bo', label='实验数据点', markersize=12)
-plt.plot(x0, -fai_bl, 'r-', label='实验曲线', linewidth=3)
 plt.grid()
 plt.xlabel('频率比 ω/ω0', fontsize=20)
 plt.ylabel('相位差 ∅ / °', fontsize=20)
